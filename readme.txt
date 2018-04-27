@@ -1,6 +1,11 @@
-1 é…ç½®git
-git config â€“global user.name "XXX"
-git config â€“global user.email "XXX@XXX"
+ÈçºÎÔÚgithubÖĞ»ñÈ¡ÏîÄ¿È¨ÏŞ£¿
+1 ÅäÖÃgit
+git config -¨Cglobal user.name "XXX"
+git config ¨C-global user.email "XXX@XXX"
 
-2 ç”Ÿæˆå¯†é’¥å¯¹
-ssh-keygen -t rsa -C â€œä¸Šé¢çš„é‚®ç®±â€
+2 Éú³ÉÃÜÔ¿¶Ô
+ssh-keygen -t rsa -C ¡°ÉÏÃæµÄÓÊÏä¡±
+Á¬Ğøµã»÷Èı´Î»Ø³µ
+cd ~/.ssh
+pwd
+½øÈëÉÏÃæÖ¸Áî·µ»ØµÄÂ·¾¶½«id_rsa.pubÖĞµÄ×Ö·û¸ø¹ÜÀíÔ±¿ªÆôÈ¨ÏŞ
