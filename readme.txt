@@ -12,7 +12,7 @@ pwd
 
 
 上传文件等至git hub
-(1).git add URL   //（已更新文件的路径）
+(1).git add .  //（将所有文件添加到仓库,如果在当前路径下,可不加路径直接将所有文件上传;不在当前路径下,加./url）
 (2).git commit -m "更新内容" 
 (3).git push origin master 
 回退代码至为更改前的最近一版
