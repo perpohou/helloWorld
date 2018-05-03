@@ -9,3 +9,15 @@ ssh-keygen -t rsa -C "上面的邮箱"
 cd ~/.ssh
 pwd
 进入上面指令返回的路径将id_rsa.pub中的字符给管理员开启权限
+
+
+上传文件等至git hub
+(1).git add URL   //（已更新文件的路径）
+(2).git commit -m "更新内容" 
+(3).git push origin master 
+回退代码至为更改前的最近一版
+git reset --hard Head
+
+git log --列出所有更新的版本
+
+git reset --hard +任意更新的版本名，即可回退至该版本
