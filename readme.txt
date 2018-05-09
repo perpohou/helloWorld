@@ -21,3 +21,6 @@ git reset --hard Head
 git log --列出所有更新的版本
 
 git reset --hard +任意更新的版本名，即可回退至该版本
+
+
+
