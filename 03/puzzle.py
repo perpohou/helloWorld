@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import os
 from PIL import Image,ImageOps
 import argparse
@@ -44,10 +45,10 @@ def get_avg_color(img):
         if count > 0:
             return (hAvg,sAvg,vAvg)
         else:
-            print("读取图片数据失败")
+            print("read images fail")
             return False
     else:
-        print("PIL 读取图片数据失败")
+        print("PIL read images fail")
         return False
 
 
@@ -61,7 +62,7 @@ def find_closiest(color, list_colors):
             diff = n_diff
             cur_closer = cur_color
     if not cur_closer:
-        print("没有足够的近似图片，建议设置重复")
+        print("have not enough images")
     cur_closer[3] += 1
     return "({}, {}, {})".format(cur_closer[0],cur_closer[1],cur_closer[2])
 
@@ -95,9 +96,9 @@ def get_image_paths():
     for file_ in os.listdir(IN_DIR):
         paths.append(IN_DIR + file_)
     if len(paths) > 0:
-        print("一共找到了%s" % len(paths) + "张图片")
+        print("have find%s" % len(paths) + "images")
     else:
-        print("未找到任何图片")
+        print("can not find any image")
 
     return paths 
 
@@ -118,7 +119,7 @@ def convert_image(path):
 
 def convert_all_images():
     paths = get_image_paths()
-    print("正在生成马赛克块...")
+    print("start...")
     pool = Pool()
     pool.map(convert_image, paths)
     pool.close()
@@ -171,6 +172,6 @@ if __name__ == '__main__':
     out = make_puzzle(img, list_of_imgs)
     img = Image.blend(out, img, 0.5)
     img.save('out.jpg') 
-    print("耗时: %s" % (time.time() - start_time))
-    print("已完成")
+    print("cost: %s" % (time.time() - start_time))
+    print("complete")
 
