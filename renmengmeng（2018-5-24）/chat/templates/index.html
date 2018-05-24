@@ -1,0 +1,63 @@
+<html>
+
+
+<head>
+	<title>chat</title>
+   <script src="http://runjs.cn//js/sandbox/jquery/jquery-1.8.2.min.js"></script>
+   <script>
+    
+    $(document).ready(function(){
+    
+    
+    	if (!window.MozWebSocket && !window.WebSocket ){
+    		alert("你的浏览器不支持websocket.");
+    		return
+    	}
+    
+    
+    	socket = new WebSocket("ws://127.0.0.1:8181/websocket");  
+    
+    
+    //event.data从服务端获取最新的信息
+    	socket.onmessage = function(event) {  
+    		$("#lines").val(
+    			$("#lines").val() + "\n" +event.data     
+    		)
+    	};  
+    
+    	socket.onopen = function(event) {  
+    		$("#lines").val("你已进入聊天室...")
+    	};  
+    
+    	socket.onclose = function(event) {  
+    	    $("#lines").val("聊天室已关闭...")
+    	};  
+    
+    
+    	$("input[name=send]").live("keydown",function(event){      
+            if(event.keyCode==13){  
+               if (socket.readyState == WebSocket.OPEN){
+               		socket.send(  $(this).val() );
+               		$(this).val("")
+               }
+            }      
+    
+        })
+    
+    
+    })
+
+</script>
+</head>  
+<body>
+<div style="width:500px;height:500px;">
+    <form onsubmit="return false;">   
+        <textarea style="width:500px;height:400px;" id="lines"></textarea>
+        <br />
+        <div style="width:225px;float:right;">
+            <input type="text" name="send">  <button id="test">enter
+        </div>
+    </form>
+</div>
+</body>
+</html>
